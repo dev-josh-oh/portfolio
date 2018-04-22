@@ -11,8 +11,7 @@ namespace PortfolioJoshOh
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //PortfolioJoshOh.SQLTest.readFromDB();
-            
+           
         }
     }
 }

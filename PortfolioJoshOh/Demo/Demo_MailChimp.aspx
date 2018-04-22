@@ -11,6 +11,7 @@
                     <li>call the root '/' endpoint for a healthcheck (ping)</li>
                     <li>call the '/lists' endpoint to retrieve the email lists and render the results on this page</li>
                 </ul>
+                source code for this demo can be found here: <a href="https://github.com/hire-josh-oh/portfolio">https://github.com/hire-josh-oh/portfolio</a>
         </div>
     </div>
 
