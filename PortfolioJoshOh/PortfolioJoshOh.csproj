@@ -135,6 +135,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Demo\Demo_SQLQueries.aspx" />
     <Content Include="Demo\Home.aspx" />
     <Content Include="Demo\Demo_MailChimp.aspx" />
     <Content Include="favicon.ico" />
@@ -206,6 +207,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\Demo_SQLQueries.aspx.cs">
+      <DependentUpon>Demo_SQLQueries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo\Demo_SQLQueries.aspx.designer.cs">
+      <DependentUpon>Demo_SQLQueries.aspx</DependentUpon>
     </Compile>
     <Compile Include="Demo\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

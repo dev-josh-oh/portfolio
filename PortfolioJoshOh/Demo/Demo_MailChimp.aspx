@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Mailchimp API Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Demo_MailChimp.aspx.cs" Inherits="PortfolioJoshOh.Demo.Demo_MailChimp" %>
+﻿<%@ Page Title="MailChimp API Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Demo_MailChimp.aspx.cs" Inherits="PortfolioJoshOh.Demo.Demo_MailChimp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
@@ -6,12 +6,19 @@
         <h2><%: Title %>.</h2>
 
         <div class="col-md-12">
-                This demo will accept a Mailchimp API key and do the following:
+                This demo will accept a MailChimp API key and do the following:
                 <ul>
                     <li>call the root '/' endpoint for a healthcheck (ping)</li>
                     <li>call the '/lists' endpoint to retrieve the email lists and render the results on this page</li>
                 </ul>
-                source code for this demo can be found here: <a href="https://github.com/hire-josh-oh/portfolio">https://github.com/hire-josh-oh/portfolio</a>
+                <p>
+                    How this demo works:
+                    <br />
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/e5WUYIxMFQo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </p>
+                <p>
+                    The source code for this demo can be found here: <a href="https://github.com/hire-josh-oh/portfolio" target="_blank">https://github.com/hire-josh-oh/portfolio</a>
+                </p>
         </div>
     </div>
 
