@@ -1,4 +1,4 @@
-﻿<%@ Page Title="SQL Query Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Demo_SQLQueries.aspx.cs" Inherits="PortfolioJoshOh.Demo.Demo_SQLQueries" %>
+﻿<%@ Page Title="SQL Query Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SQLQueries.aspx.cs" Inherits="PortfolioJoshOh.Demo.Demo_SQLQueries" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">

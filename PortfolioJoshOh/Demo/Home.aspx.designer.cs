@@ -11,7 +11,7 @@ namespace PortfolioJoshOh.Demo
 {
 
 
-    public partial class Demo
+    public partial class DemoHome
     {
     }
 }

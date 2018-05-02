@@ -1,4 +1,4 @@
-﻿<%@ Page Title="MailChimp API Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Demo_MailChimp.aspx.cs" Inherits="PortfolioJoshOh.Demo.Demo_MailChimp" %>
+﻿<%@ Page Title="MailChimp API Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MailChimp.aspx.cs" Inherits="PortfolioJoshOh.Demo.Demo_MailChimp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">

@@ -167,9 +167,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Demo\Demo_SQLQueries.aspx" />
+    <Content Include="Demo\SQLQueries.aspx" />
     <Content Include="Demo\Home.aspx" />
-    <Content Include="Demo\Demo_MailChimp.aspx" />
+    <Content Include="Demo\MailChimp.aspx" />
     <Content Include="DynamicData\EntityTemplates\Default.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Edit.ascx" />
     <Content Include="DynamicData\EntityTemplates\Default_Insert.ascx" />
@@ -295,12 +295,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Demo\Demo_SQLQueries.aspx.cs">
-      <DependentUpon>Demo_SQLQueries.aspx</DependentUpon>
+    <Compile Include="Demo\SQLQueries.aspx.cs">
+      <DependentUpon>SQLQueries.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Demo\Demo_SQLQueries.aspx.designer.cs">
-      <DependentUpon>Demo_SQLQueries.aspx</DependentUpon>
+    <Compile Include="Demo\SQLQueries.aspx.designer.cs">
+      <DependentUpon>SQLQueries.aspx</DependentUpon>
     </Compile>
     <Compile Include="Demo\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -309,12 +309,12 @@
     <Compile Include="Demo\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Demo\Demo_MailChimp.aspx.cs">
-      <DependentUpon>Demo_MailChimp.aspx</DependentUpon>
+    <Compile Include="Demo\MailChimp.aspx.cs">
+      <DependentUpon>MailChimp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Demo\Demo_MailChimp.aspx.designer.cs">
-      <DependentUpon>Demo_MailChimp.aspx</DependentUpon>
+    <Compile Include="Demo\MailChimp.aspx.designer.cs">
+      <DependentUpon>MailChimp.aspx</DependentUpon>
     </Compile>
     <Compile Include="DynamicData\EntityTemplates\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>

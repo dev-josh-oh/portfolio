@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PortfolioJoshOh.Demo
 {
-    public partial class Demo : System.Web.UI.Page
+    public partial class DemoHome : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
