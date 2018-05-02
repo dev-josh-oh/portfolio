@@ -3,7 +3,7 @@
 
     <div class="row">
 
-        <h2><%: Title %>.</h2>
+        <h2><%: Title %></h2>
 
         <div class="col-md-12">
                 This demo will accept a MailChimp API key and do the following:
@@ -78,9 +78,6 @@
             $("div[id*='divGetLists']").fadeIn(1000);
         }
     </script>
-
-
-
     <style>
     .overlay {
         position: fixed;

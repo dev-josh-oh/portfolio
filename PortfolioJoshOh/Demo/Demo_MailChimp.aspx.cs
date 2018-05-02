@@ -38,7 +38,7 @@ namespace PortfolioJoshOh.Demo
             catch (WebException ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 
