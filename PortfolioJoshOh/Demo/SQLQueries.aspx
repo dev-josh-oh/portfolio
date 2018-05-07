@@ -19,9 +19,9 @@
 
     <input id="btnGetEmployeeRecord" type="button" class="btn btn-primary" runat="server" onclick="getEmployees()" value="Get top 5 paid employees" />
     <input id="btnEnterEmployeeRecord" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" runat="server" value="Add Employee Record" />
-    <input id="btnResetEmployeeTable" type="button" class="btn btn-danger navbar-right" runat="server" onclick="resetEmployeeTable()" value="Reset Employee Table" />
+    <input id="btnResetEmployeeTable" type="button" class="btn btn-danger navbar-right" data-toggle="modal" data-target="#dvResetEmployeeTableModal" runat="server" value="Reset Employee Table" />
 
-    <!-- Modal -->
+    <!-- Add Employee Record Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -44,10 +44,35 @@
                         <label for="inpSalary">Salary:</label>
                         <input id="inpSalary" type="text" class="form-control" required number="true" />
                     </div>
-                    <input id="btnSubmitEmployeeRecord" type="button" class="btn btn-success" onclick="ValidateAndSubmitAddEmployForm(); return false;" value="Submit" />
                 </div>
                 <div class="modal-footer">
-                <button id="btnCloseModal" type="button" class="btn btn-default modalshutdown" data-dismiss="modal">Close</button>
+                <button id="btnCloseModal" type="button" class="btn btn-default navbar-left modalshutdown" data-dismiss="modal">Close</button>
+                <input id="btnSubmitEmployeeRecord" type="button" class="btn btn-success navbar-right" onclick="ValidateAndSubmitAddEmployForm(); return false;" value="Submit" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Employee Table Modal -->
+    <div id="dvResetEmployeeTableModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <button id="btnResetEmployeeTableTopCloseModal" type="button" class="close modalshutdown" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Are you sure?</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <p>
+                            By choosing yes, you will <span style="color:red">wipe out all added employees</span> and reset the table with default records.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <button id="btnResetEmployeeTableCloseModal" type="button" class="btn btn-default navbar-left modalshutdown" data-dismiss="modal">Close</button>
+                <input id="btnResetEmployeeTableSubmit" type="button" class="btn btn-danger navbar-right" onclick="resetEmployeeTable(); return false;" value="Yes" />
                 </div>
             </div>
         </div>
@@ -158,6 +183,10 @@
 
             response.fail(function (data) {
                 alert('failed to add employee. error message: ' + data.responseJSON.ExceptionMessage);
+            });
+
+            response.always(function (data) {
+                $("#btnResetEmployeeTableCloseModal").click()
             });
         }
     </script>
