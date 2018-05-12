@@ -167,6 +167,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Demo\Blockchain.aspx" />
     <Content Include="Demo\SQLQueries.aspx" />
     <Content Include="Demo\Home.aspx" />
     <Content Include="Demo\MailChimp.aspx" />
@@ -279,7 +280,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AzureSQLDBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Common\APIController.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,6 +294,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\Blockchain.aspx.cs">
+      <DependentUpon>Blockchain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo\Blockchain.aspx.designer.cs">
+      <DependentUpon>Blockchain.aspx</DependentUpon>
     </Compile>
     <Compile Include="Demo\SQLQueries.aspx.cs">
       <DependentUpon>SQLQueries.aspx</DependentUpon>
@@ -518,15 +525,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mailchimp\CampaignDefaults.cs" />
-    <Compile Include="Mailchimp\Contact.cs" />
-    <Compile Include="Mailchimp\Endpoints.cs" />
-    <Compile Include="Mailchimp\GetResponseError.cs" />
-    <Compile Include="Mailchimp\GetResponseRoot.cs" />
-    <Compile Include="Mailchimp\IndustryStats.cs" />
-    <Compile Include="Mailchimp\Link.cs" />
-    <Compile Include="Mailchimp\GetResponseLists.cs" />
-    <Compile Include="Mailchimp\Stats.cs" />
+    <Compile Include="MailChimp\CampaignDefaults.cs" />
+    <Compile Include="MailChimp\Contact.cs" />
+    <Compile Include="MailChimp\CustomControls\ErrorResponse.cs" />
+    <Compile Include="MailChimp\Endpoints.cs" />
+    <Compile Include="MailChimp\GetResponseError.cs" />
+    <Compile Include="MailChimp\GetResponseRoot.cs" />
+    <Compile Include="MailChimp\IndustryStats.cs" />
+    <Compile Include="MailChimp\Link.cs" />
+    <Compile Include="MailChimp\GetResponseLists.cs" />
+    <Compile Include="MailChimp\Stats.cs" />
+    <Compile Include="MailChimp\XTriggerError.cs" />
     <Compile Include="SQLTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

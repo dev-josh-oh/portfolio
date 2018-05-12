@@ -67,6 +67,24 @@ namespace PortfolioJoshOh.Demo {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPingResult;
         
         /// <summary>
+        /// divMailChimpErrorResponse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMailChimpErrorResponse;
+        
+        /// <summary>
+        /// gvMailChimpErrorResponse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvMailChimpErrorResponse;
+        
+        /// <summary>
         /// upGetLists control.
         /// </summary>
         /// <remarks>

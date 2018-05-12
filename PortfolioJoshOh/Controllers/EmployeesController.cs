@@ -29,7 +29,6 @@ namespace PortfolioJoshOh.Controllers
             {
                 employeesFromDB = context.EMPLOYEEs
                     .OrderByDescending(element => element.SALARY)
-                    .Take(5)
                     .ToList();
             }
             return employeesFromDB;
@@ -47,13 +46,14 @@ namespace PortfolioJoshOh.Controllers
             return Ok();
         }
 
-        //[HttpGet]
-        //[ActionName("topten")]
-        //public List<PortfolioJoshOh.EMPLOYEE> GetTopTenEarningEmployees()
-        //{
-        //    // TODO: get employees with top 10 salaries from DB here
-        //    return null;
-        //}
+        [HttpGet]
+        [ActionName("topfive")]
+        public List<EMPLOYEE> GetTopFiveEarningEmployees()
+        {
+            List<EMPLOYEE> employeesFromDB = new List<EMPLOYEE>();
+            employeesFromDB = this.GetAllEmployees().Take(5).ToList();
+            return employeesFromDB;
+        }
 
         //[HttpGet]
         //[ActionName("secondhighest")]

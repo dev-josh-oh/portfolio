@@ -9,7 +9,7 @@
 
     <div class="row">
         <div class="col-md-4">
-            <a class="btn btn-default" href="Demo/Home.aspx">See my demo &raquo;</a>
+            <a class="btn btn-success" href="Demo/Home.aspx">See my demos &raquo;</a>
         </div>
     </div>
     <br />
@@ -18,4 +18,5 @@
             <a class="btn btn-default" href="https://github.com/hire-josh-oh/portfolio" target="_blank">github for this entire website &raquo;</a>
         </div>
     </div>
+    <div style="height:400px"></div>
 </asp:Content>

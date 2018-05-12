@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace PortfolioJoshOh.Mailchimp
+namespace PortfolioJoshOh.MailChimp
 {
     [DataContract]
     public class GetResponseLists
@@ -58,5 +58,7 @@ namespace PortfolioJoshOh.Mailchimp
         public Stats stats { get; set; }
         [DataMember]
         public List<Link> _links { get; set; }
+        [DataMember]
+        public GetResponseError responseError { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using PortfolioJoshOh.Mailchimp;
+﻿using PortfolioJoshOh.MailChimp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,17 +27,29 @@ namespace PortfolioJoshOh.Demo
 
             try
             {
-                GetResponseRoot rootResponse = PortfolioJoshOh.Mailchimp.Endpoints.GetRootAsync(mailChimpURL, apiKey).GetAwaiter().GetResult();
+                GetResponseRoot rootResponse = PortfolioJoshOh.MailChimp.Endpoints.GetRootAsync(mailChimpURL, apiKey).GetAwaiter().GetResult();
+                bool isPingFail = true;                
 
                 if(rootResponse.account_id != null)
                 {
                     this.lblPingResult.InnerHtml = "Ping successful.<br/> Account ID: " + rootResponse.account_id;
-                    ScriptManager.RegisterStartupScript(upAPI, upAPI.GetType(), "showDiv", "showPingResult();", true);
+                    isPingFail = false;
                 }
+                else
+                {
+                    this.lblPingResult.InnerHtml = "Ping failed with the following message from the MailChimp server: <br/>" +
+                        "<br/>" +
+                        "<font style=\"color:red\" >detail</font> : " + rootResponse.responseError.detail + "<br/>" +
+                        "<font style=\"color:red\" >instance</font> : " + rootResponse.responseError.instance + "<br/>" +
+                        "<font style=\"color:red\" >status</font> : " + rootResponse.responseError.status + "<br/>" +
+                        "<font style=\"color:red\" >title</font> : " + rootResponse.responseError.title + "<br/>";
+                    isPingFail = true;
+                }
+                // injecting JS to handle display of the result instead of setting the div to show here to get the nice fade in effect from jQuery
+                ScriptManager.RegisterStartupScript(upAPI, upAPI.GetType(), "showDiv", "showPingResult(" + isPingFail.ToString().ToLower() + ");", true);
             }
             catch (WebException ex)
             {
-
                 throw ex;
             }
         }
@@ -50,7 +62,7 @@ namespace PortfolioJoshOh.Demo
             string server = apiKey.Split('-').Last();
             string mailChimpURL = string.Format("https://{0}.api.mailchimp.com/3.0/lists", server);
 
-            GetResponseLists listsResponse = PortfolioJoshOh.Mailchimp.Endpoints.GetListsAsync(mailChimpURL, apiKey).GetAwaiter().GetResult();
+            GetResponseLists listsResponse = PortfolioJoshOh.MailChimp.Endpoints.GetListsAsync(mailChimpURL, apiKey).GetAwaiter().GetResult();
 
             if(listsResponse != null)
             {

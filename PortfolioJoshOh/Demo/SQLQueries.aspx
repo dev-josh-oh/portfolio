@@ -47,7 +47,7 @@
                 </div>
                 <div class="modal-footer">
                 <button id="btnCloseModal" type="button" class="btn btn-default navbar-left modalshutdown" data-dismiss="modal">Close</button>
-                <input id="btnSubmitEmployeeRecord" type="button" class="btn btn-success navbar-right" onclick="ValidateAndSubmitAddEmployForm(); return false;" value="Submit" />
+                <button id="btnSubmitEmployeeRecord" type="button" class="btn btn-success navbar-right" onclick="ValidateAndSubmitAddEmployForm(); return false;" value="Submit" />
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="modal-footer">
                 <button id="btnResetEmployeeTableCloseModal" type="button" class="btn btn-default navbar-left modalshutdown" data-dismiss="modal">Close</button>
-                <input id="btnResetEmployeeTableSubmit" type="button" class="btn btn-danger navbar-right" onclick="resetEmployeeTable(); return false;" value="Yes" />
+                <button id="btnResetEmployeeTableSubmit" type="button" class="btn btn-danger navbar-right" onclick="resetEmployeeTable(); return false;" value="Yes" />
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
             $("#dvEmployees").show();
             $('#tbodEmployees').empty();
             $(document).ready(function () {
-                var uri = '/api/employees/default';
+                var uri = '/api/employees/topfive';
                 $.getJSON(uri)
                     .done(function (data) {
                             $.each(data, function(key, item) {

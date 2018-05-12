@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace PortfolioJoshOh.Mailchimp
+namespace PortfolioJoshOh.MailChimp
 {
     [DataContract]
     public class Link

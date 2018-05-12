@@ -8,29 +8,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace PortfolioJoshOh.Mailchimp
+namespace PortfolioJoshOh.MailChimp
 {
     public class Endpoints
     {
         static HttpClient client = new HttpClient();
 
-        public static async Task<GetResponseRoot> GetRootAsync(string path, string apiKey)
+        public static async Task<MailChimp.GetResponseRoot> GetRootAsync(string path, string apiKey)
         {
-            GetResponseRoot rootResponse = null;
+            MailChimp.GetResponseRoot rootResponse = new GetResponseRoot();
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", apiKey);
+
+            //// to test error handling, reassign the X-Trigger-Error header
+            //// beginning of error checking code
+            //client.DefaultRequestHeaders.Remove("X-Trigger-Error");
+            //client.DefaultRequestHeaders.Add("X-Trigger-Error", XTriggerError._401APIKeyMissing);
+            //// end of error checking code
+
 
             try
             {
                 HttpResponseMessage response = await client.GetAsync(path).ConfigureAwait(false);
+                var responseResult = await response.Content.ReadAsStringAsync();
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseResult = await response.Content.ReadAsStringAsync();
-
-                    var serializer = new DataContractJsonSerializer(typeof(GetResponseRoot));
-
+                    var serializer = new DataContractJsonSerializer(typeof(MailChimp.GetResponseRoot));
                     var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(responseResult));
-                    rootResponse = (GetResponseRoot)serializer.ReadObject(memoryStream);
-
+                    rootResponse = (MailChimp.GetResponseRoot)serializer.ReadObject(memoryStream);
+                }
+                else
+                {
+                    var serializer = new DataContractJsonSerializer(typeof(MailChimp.GetResponseError));
+                    var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(responseResult));
+                    rootResponse.responseError = (MailChimp.GetResponseError)serializer.ReadObject(memoryStream);
                 }
             }
             catch (Exception e)
@@ -41,9 +51,9 @@ namespace PortfolioJoshOh.Mailchimp
             return rootResponse;
         }
 
-        public static async Task<GetResponseLists> GetListsAsync(string path, string apiKey)
+        public static async Task<MailChimp.GetResponseLists> GetListsAsync(string path, string apiKey)
         {
-            GetResponseLists listsResponse = null;
+            MailChimp.GetResponseLists listsResponse = null;
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", apiKey);
 
             try
@@ -53,10 +63,10 @@ namespace PortfolioJoshOh.Mailchimp
                 {
                     var responseResult = await response.Content.ReadAsStringAsync();
 
-                    var serializer = new DataContractJsonSerializer(typeof(GetResponseLists));
+                    var serializer = new DataContractJsonSerializer(typeof(MailChimp.GetResponseLists));
 
                     var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(responseResult));
-                    listsResponse = (GetResponseLists)serializer.ReadObject(memoryStream);
+                    listsResponse = (MailChimp.GetResponseLists)serializer.ReadObject(memoryStream);
 
                 }
             }

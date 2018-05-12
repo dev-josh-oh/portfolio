@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="PortfolioJoshOh.Demo.DemoHome" %>
+﻿<%@ Page Title="Demos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="PortfolioJoshOh.Demo.DemoHome" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <h2><%: Title %></h2>
@@ -8,7 +8,7 @@
                 MailChimp is an email marketing platform. This demo app will ping the MailChimp API and then retrieve the email list for the associated account.
             </p>
             <p>
-                <a class="btn btn-default" href="MailChimp.aspx">See Demo &raquo;</a>
+                <a class="btn btn-success" href="MailChimp.aspx">See Demo &raquo;</a>
             </p>
         </div>
     </div>
@@ -23,7 +23,25 @@
                 Web API 2 to facilitate the AJAX requests and Entity Framework 6 to establish the ORM.
             </p>
             <p>
-                <a class="btn btn-default" href="SQLQueries.aspx">See Demo &raquo;</a>
+                <a class="btn btn-success" href="SQLQueries.aspx">See Demo &raquo;</a>
+            </p>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Blockchain Demo</h4>
+            <p>
+                Based on a guide written by Kass.<br />
+                I've been eyeing this blueprint of a blockchain for few months now.
+                I'm going to see how far I can follow the guide using ASP.NET, C# and Javascript.
+                Bonus points if I can create a miner that is purely clientside, javascript based and running on the browser for easy mass adoption.
+            </p>
+            <p>
+                Source: <a href="https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa" target="_blank">https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa</a>
+            </p>
+            <p>
+                <a class="btn btn-warning" href="Blockchain.aspx">Coming Soon &raquo;</a>
             </p>
         </div>
     </div>

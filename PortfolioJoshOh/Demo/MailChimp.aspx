@@ -27,18 +27,25 @@
     <asp:UpdatePanel ID="upAPI" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <div id="divAPIKey" class="row">
-                <p>
-                    <label id="lblAPIKey" runat="server">API Key: </label>
-                    <asp:TextBox ID="txtAPIKey" runat="server"></asp:TextBox>
-                    <asp:Button ID="btnSubmitAPIKey" CssClass="btn btn-default" runat="server" Text="Submit" OnClick="btnSubmitAPIKey_Click" />
+                    <div class="form-inline">
+                        <label id="lblAPIKey" runat="server">API Key: </label>
+                        <asp:TextBox ID="txtAPIKey" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:Button ID="btnSubmitAPIKey" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnSubmitAPIKey_Click" />
+                </div>
                 </p>
             </div>
             <div id="divPingResult" class="row" style="display:none" runat="server">
                 <label id="lblPingResult" runat="server"></label>
             </div>
+            <div id="divMailChimpErrorResponse" class="row" style="display:none" runat="server">
+                <asp:GridView ID="gvMailChimpErrorResponse" runat="server">
+                    <Columns>
+
+                    </Columns>
+                </asp:GridView>
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-
     <asp:UpdatePanel ID="upGetLists" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <div id="divGetLists" class="row" style="display:none" runat="server">
@@ -69,9 +76,11 @@
     </asp:UpdatePanel>
 
     <script type="text/javascript">
-        function showPingResult() {
+        function showPingResult(isPingFail) {
             $("div[id*='divPingResult']").fadeIn(1000, function () {
-                showGetListsDiv();
+                if (!isPingFail) {
+                    showGetListsDiv();
+                }
             });
         }
         function showGetListsDiv() {
