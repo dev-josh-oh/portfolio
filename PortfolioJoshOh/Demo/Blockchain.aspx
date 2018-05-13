@@ -83,7 +83,7 @@
                     <hr />
                 </FooterTemplate>
             </asp:Repeater>
-            <asp:Label ID="lblResults" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblResults" runat="server"></asp:Label>
         </div>
     </div>
 </asp:Content>
