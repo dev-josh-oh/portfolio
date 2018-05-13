@@ -7,7 +7,7 @@
 
         <div class="col-md-12">
             <p>
-                This demo will allow you to enter data into the employee table and retrieve the top 5 highest salary from the SQL database.
+                This demo will allow you to enter data into the employee table and retrieve the top 5 paid employees from the SQL database.
             </p>
             <p>
                 The source code for this demo can be found here: <a href="https://github.com/hire-josh-oh/portfolio" target="_blank">https://github.com/hire-josh-oh/portfolio</a>
@@ -78,21 +78,38 @@
         </div>
     </div>
 
-    <div id="dvEmployees">
-        <h2>Top 5 paid employees</h2>
-        <table id="tbEmployees" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Employee ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Salary</th>
-                </tr>
-            </thead>
-            <tbody id="tbodEmployees"></tbody>
-        </table>
+    <div id="dvEmployees" style="position:relative">
+        <div id="dvBusyModalBackground" class="busyModalOverlay"></div>
+        <div id="dvBusyModal" class="busyModalOverlay"></div>
+        <div id="dvEmployeeTableContent">
+            <h2>Top 5 paid employees</h2>
+            <table id="tbEmployees" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodEmployees"></tbody>
+            </table>
+        </div>
     </div>
-
+    <style type="text/css">
+        .busyModalOverlay {
+            height: 100%;
+            width:100%;
+            position:absolute;
+        }
+        #dvBusyModal {
+            background: url(/Images/busy_cylon.gif) no-repeat center center;
+        }
+        #dvBusyModalBackground {
+            background-color:gray;
+            opacity: 0.5;
+        }
+    </style>
     <script type="text/javascript">
         $(document).ready(function () {
             $("#dvEmployees").hide();
@@ -101,23 +118,35 @@
             });
         });
 
+        function showBusyModalOverlay() {
+            $(".busyModalOverlay").show();
+        }
+
+        function hideBusyModalOverlay() {
+            $(".busyModalOverlay").hide();
+        }
+
         function getEmployees() {
+            showBusyModalOverlay();
             $("#dvEmployees").show();
             $('#tbodEmployees').empty();
             $(document).ready(function () {
                 var uri = '/api/employees/topfive';
                 $.getJSON(uri)
                     .done(function (data) {
-                            $.each(data, function(key, item) {
-                                var $tr = $('<tr>').append(
-                                    $('<td>').text(item.EMPLOYEE_ID),
-                                    $('<td>').text(item.FIRST_NAME),
-                                    $('<td>').text(item.LAST_NAME),
-                                    $('<td>').text(item.SALARY)
-                                ).appendTo('#tbodEmployees');
-                            });
+                        $.each(data, function (key, item) {
+                            var $tr = $('<tr>').append(
+                                $('<td>').text(item.EMPLOYEE_ID),
+                                $('<td>').text(item.FIRST_NAME),
+                                $('<td>').text(item.LAST_NAME),
+                                $('<td>').text(item.SALARY)
+                            ).appendTo('#tbodEmployees');
                         });
+                    })
+                    .always(function () {
+                        hideBusyModalOverlay();
                     });
+            });
         }
 
         function ValidateAndSubmitAddEmployForm() {
@@ -170,6 +199,7 @@
         }
 
         function resetEmployeeTable() {
+            showBusyModalOverlay();
             var response = $.ajax({
                 url: '/api/employees/reset',
                 type: 'POST',
@@ -183,6 +213,7 @@
 
             response.fail(function (data) {
                 alert('failed to add employee. error message: ' + data.responseJSON.ExceptionMessage);
+                hideBusyModalOverlay();
             });
 
             response.always(function (data) {
