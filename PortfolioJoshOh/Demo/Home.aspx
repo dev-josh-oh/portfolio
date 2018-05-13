@@ -17,7 +17,7 @@
         <div class="col-md-4">
             <h4>SQL Query Demo</h4>
             <p>
-                Simple demo showing GET and POST operations. This one was done with zero postbacks.
+                Simple demo showing GET and POST operations. This was done with zero postbacks.
                 All requests are done through clientside AJAX calls. Even the tables are databound using jQuery instead of the .NET controls.
                 Other notable remarks include usage of bootstrap classes, 3rd party jQuery validator plugin,
                 Web API 2 to facilitate the AJAX requests and Entity Framework 6 to establish the ORM.

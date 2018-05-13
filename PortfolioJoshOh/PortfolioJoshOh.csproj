@@ -281,6 +281,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AzureSQLDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Blockchain\Block.cs" />
+    <Compile Include="Blockchain\SHA.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
