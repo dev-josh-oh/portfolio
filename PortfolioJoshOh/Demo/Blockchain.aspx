@@ -1,9 +1,24 @@
 ﻿<%@ Page Title="Blockchain Demo" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Blockchain.aspx.cs" Inherits="PortfolioJoshOh.Demo.Demo_Blockchain" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-        <div class="row">
+    <style type="text/css">
+        ul.nostyle
+        {
+            list-style:none;
+        }
 
+        ul li.unchecked:before
+        {
+            content: '°';
+        }
+
+        ul li.checked:before
+        {
+            content: '✓';
+            color:limegreen;
+        }
+    </style>
+    <div class="row">
         <h2><%: Title %></h2>
-
         <div class="col-md-12">
             <p>
                 <span class="glyphicon glyphicon-wrench" style="font-size:25px; vertical-align:sub;" ></span>
@@ -13,23 +28,23 @@
             <p>
                 Blockchain demo roadmap:
             </p>
-            <ul>
+            <ul class="nostyle">
                 <li>
                     <b>Phase 1</b>
-                    <ul>
-                        <li>Ability to store data in blocks</li>
-                        <li>Has digital signature that chains the blocks together</li>
-                        <li>Proof of work mining to validate new blocks</li>
-                        <li>Can check to see if data in the chain is valid and unchanged</li>
+                    <ul  class="nostyle">
+                        <li class="checked">&nbsp;Ability to store data in blocks</li>
+                        <li class="checked">&nbsp;Has digital signature that chains the blocks together</li>
+                        <li class="unchecked">&nbsp;&nbsp;Proof of work mining to validate new blocks</li>
+                        <li class="unchecked">&nbsp;&nbsp;Can check to see if data in the chain is valid and unchanged</li>
                     </ul>
                 </li>
                 <li>
                     <b>Phase 2</b>
-                    <ul>
-                        <li>Allows users to create wallets</li>
-                        <li>Provide wallets with public and private keys using Elliptic-Curve cryptography</li>
-                        <li>Secure transfer of funds by using a digital signature algorithm to prove ownership</li>
-                        <li>Allow users to make transactions on the blockchain</li>
+                    <ul class="nostyle">
+                        <li class="unchecked">&nbsp;&nbsp;Allows users to create wallets</li>
+                        <li class="unchecked">&nbsp;&nbsp;Provide wallets with public and private keys using Elliptic-Curve cryptography</li>
+                        <li class="unchecked">&nbsp;&nbsp;Secure transfer of funds by using a digital signature algorithm to prove ownership</li>
+                        <li class="unchecked">&nbsp;&nbsp;Allow users to make transactions on the blockchain</li>
                     </ul>
                 </li>
             </ul>
@@ -80,7 +95,6 @@
                     </div>
                 </AlternatingItemTemplate>
                 <FooterTemplate>
-                    <hr />
                 </FooterTemplate>
             </asp:Repeater>
             <asp:Label ID="lblResults" runat="server"></asp:Label>
