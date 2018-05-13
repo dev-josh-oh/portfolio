@@ -16,6 +16,10 @@
             content: '✓';
             color:limegreen;
         }
+        ul li.checked
+        {
+            color:limegreen;
+        }
     </style>
     <div class="row">
         <h2><%: Title %></h2>
