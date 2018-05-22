@@ -11,6 +11,7 @@ namespace PortfolioJoshOh.Blockchain
         public string previousHash { get; set; }
         public string data { get; set; }
         public DateTime timeStamp { get; set; }
+        public int nonce { get; set; }
 
         public Block(string data, string previousHash)
         {
@@ -25,6 +26,16 @@ namespace PortfolioJoshOh.Blockchain
             string stringToBeHashed = this.previousHash + this.timeStamp + data;
             string calculatedHash = Blockchain.SHA.GenerateSHA256String(stringToBeHashed);
             return calculatedHash;
+        }
+
+        public void mineBlock(int difficulty)
+        {
+            string target = new string(new char[difficulty]).Replace('\0', '0');
+            while(!this.hash.Substring(0, difficulty).Equals(target))
+            {
+                this.nonce++;
+                this.hash = calculateHash();
+            }
         }
     }
 }

@@ -99,6 +99,7 @@
                     </div>
                 </AlternatingItemTemplate>
                 <FooterTemplate>
+                    <hr />
                 </FooterTemplate>
             </asp:Repeater>
             <asp:Label ID="lblResults" runat="server"></asp:Label>
