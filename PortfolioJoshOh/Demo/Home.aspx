@@ -45,7 +45,6 @@
             </p>
         </div>
     </div>
-    <div style="height:200px"></div>
     <hr />
     <div id="disqus_thread"></div>
     <script>

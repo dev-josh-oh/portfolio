@@ -61,10 +61,12 @@
             </div>
         </div>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <footer class="footer">
+                <hr />
                 <p>&copy; <%: DateTime.Now.Year %> - Josh Oh's Portfolio</p>
             </footer>
         </div>

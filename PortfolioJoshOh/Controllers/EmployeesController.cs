@@ -21,17 +21,19 @@ namespace PortfolioJoshOh.Controllers
     {
         [HttpGet]
         [ActionName("default")]
-        public List<EMPLOYEE> GetAllEmployees()
+        public List<Employee> GetAllEmployees()
         {
-            List<PortfolioJoshOh.EMPLOYEE> employeesFromDB = new List<EMPLOYEE>();
+            List<Employee> webAPIEmployees = new List<Employee>();
+            List<employee> listOfEmployeeEntities = new List<employee>();
             //Querying with LINQ to Entities 
-            using (var context = new PortfolioJoshOh.AzureSQLDBEntities())
+            using (var context = new PortfolioJoshOh.NorthwindEntities())
             {
-                employeesFromDB = context.EMPLOYEEs
-                    .OrderByDescending(element => element.SALARY)
+                listOfEmployeeEntities = context.employees
+                    .OrderByDescending(element => element.salary)
                     .ToList();
             }
-            return employeesFromDB;
+            webAPIEmployees = Employee.CopyFromEntity(listOfEmployeeEntities);
+            return webAPIEmployees;
         }
 
         [HttpGet]
@@ -48,11 +50,11 @@ namespace PortfolioJoshOh.Controllers
 
         [HttpGet]
         [ActionName("topfive")]
-        public List<EMPLOYEE> GetTopFiveEarningEmployees()
+        public List<Employee> GetTopFiveEarningEmployees()
         {
-            List<EMPLOYEE> employeesFromDB = new List<EMPLOYEE>();
-            employeesFromDB = this.GetAllEmployees().Take(5).ToList();
-            return employeesFromDB;
+            List<Employee> webAPIEmployee = new List<Employee>();
+            webAPIEmployee = this.GetAllEmployees().Take(5).ToList();
+            return webAPIEmployee;
         }
 
         //[HttpGet]
@@ -67,14 +69,14 @@ namespace PortfolioJoshOh.Controllers
         [ActionName("post")]
         public IHttpActionResult PostEmployee(PortfolioJoshOh.Models.Employee newEmployee)
         {
-            using (var context = new PortfolioJoshOh.AzureSQLDBEntities())
+            using (var context = new PortfolioJoshOh.NorthwindEntities())
             {
-                EMPLOYEE employeeInContext = new EMPLOYEE() { FIRST_NAME = newEmployee.FIRST_NAME, LAST_NAME = newEmployee.LAST_NAME, SALARY = newEmployee.SALARY };
+                employee employeeInContext = new employee() { first_name = newEmployee.FIRST_NAME, last_name = newEmployee.LAST_NAME, salary = newEmployee.SALARY };
 
-                context.EMPLOYEEs.Add(employeeInContext);
+                context.employees.Add(employeeInContext);
                 context.SaveChanges();
                 // After SaveChanges, Employee ID is updated for the context employee object so we return the correct ID here
-                newEmployee.EMPLOYEE_ID = employeeInContext.EMPLOYEE_ID;
+                newEmployee.EMPLOYEE_ID = employeeInContext.id;
             }
             return Ok(newEmployee);
         }
@@ -83,15 +85,13 @@ namespace PortfolioJoshOh.Controllers
         [ActionName("reset")]
         public IHttpActionResult PostResetTableToDefault()
         {
-            using (var context = new PortfolioJoshOh.AzureSQLDBEntities())
+            using (var context = new PortfolioJoshOh.NorthwindEntities())
             {
-                context.Database.ExecuteSqlCommand("DELETE FROM [EMPLOYEE]");
-                EMPLOYEE employeeInContext = new EMPLOYEE() { FIRST_NAME = "Gary", LAST_NAME = "Stu", SALARY = 54000 };
-                context.EMPLOYEEs.Add(employeeInContext);
-                employeeInContext = new EMPLOYEE() { FIRST_NAME = "John", LAST_NAME = "Everyman", SALARY = 64000 };
-                context.EMPLOYEEs.Add(employeeInContext);
-                employeeInContext = new EMPLOYEE() { FIRST_NAME = "Mary", LAST_NAME = "Sue", SALARY = 86000 };
-                context.EMPLOYEEs.Add(employeeInContext);
+                // employee id ranging from 201 through 220 are from the northwind database and I want to preserve the original records.
+                // deleting only user created rows which are employee id 221 and higher.
+                context.Database.ExecuteSqlCommand("ALTER TABLE orders NOCHECK CONSTRAINT ALL;" +
+                    "DELETE FROM employees WHERE id >= 221;" +
+                    "ALTER TABLE orders CHECK CONSTRAINT ALL;");
                 context.SaveChanges();
             }
             return Ok();

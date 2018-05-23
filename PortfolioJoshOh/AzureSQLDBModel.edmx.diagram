@@ -4,8 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="764b9e6f943e479c96983bddd4479ae3" Name="Diagram1">
-        <EntityTypeShape EntityType="AzureSQLDBModel.EMPLOYEE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="883b4e99828542d3926c9467ad105e81" Name="Diagram1">
+        <EntityTypeShape EntityType="NorthwindModel.customer" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.employee" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.order_details" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NorthwindModel.product" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <AssociationConnector Association="NorthwindModel.fk_orders__customers" ManuallyRouted="false" />
+        <AssociationConnector Association="NorthwindModel.fk_orders__employees" ManuallyRouted="false" />
+        <AssociationConnector Association="NorthwindModel.fk_order_details__orders" ManuallyRouted="false" />
+        <AssociationConnector Association="NorthwindModel.fk_order_details__products" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

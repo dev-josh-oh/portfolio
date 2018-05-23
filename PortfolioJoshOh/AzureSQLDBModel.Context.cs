@@ -13,10 +13,10 @@ namespace PortfolioJoshOh
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AzureSQLDBEntities : DbContext
+    public partial class NorthwindEntities : DbContext
     {
-        public AzureSQLDBEntities()
-            : base("name=AzureSQLDBEntities")
+        public NorthwindEntities()
+            : base("name=NorthwindEntities")
         {
         }
     
@@ -25,6 +25,10 @@ namespace PortfolioJoshOh
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<EMPLOYEE> EMPLOYEEs { get; set; }
+        public virtual DbSet<customer> customers { get; set; }
+        public virtual DbSet<employee> employees { get; set; }
+        public virtual DbSet<order_details> order_details { get; set; }
+        public virtual DbSet<order> orders { get; set; }
+        public virtual DbSet<product> products { get; set; }
     }
 }

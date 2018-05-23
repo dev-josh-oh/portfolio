@@ -18,5 +18,4 @@
             <a class="btn btn-default" href="https://github.com/hire-josh-oh/portfolio" target="_blank">github for this entire website &raquo;</a>
         </div>
     </div>
-    <div style="height:400px"></div>
 </asp:Content>
