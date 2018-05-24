@@ -27,12 +27,11 @@
     <asp:UpdatePanel ID="upAPI" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <div id="divAPIKey" class="row">
-                    <div class="form-inline">
-                        <label id="lblAPIKey" runat="server">API Key: </label>
-                        <asp:TextBox ID="txtAPIKey" CssClass="form-control" runat="server"></asp:TextBox>
-                        <asp:Button ID="btnSubmitAPIKey" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnSubmitAPIKey_Click" />
+                <div class="form-inline">
+                    <label id="lblAPIKey" runat="server">API Key: </label>
+                    <asp:TextBox ID="txtAPIKey" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnSubmitAPIKey" CssClass="btn btn-success" runat="server" Text="Submit" OnClick="btnSubmitAPIKey_Click" />
                 </div>
-                </p>
             </div>
             <div id="divPingResult" class="row" style="display:none" runat="server">
                 <label id="lblPingResult" runat="server"></label>

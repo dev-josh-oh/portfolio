@@ -11,6 +11,20 @@
                 <a class="btn btn-success" href="MailChimp.aspx">See Demo &raquo;</a>
             </p>
         </div>
+        <div class="col-md-2" ></div>
+        <div class="col-md-4">
+            <h4>Guild Wars 2 API Demo</h4>
+            <p>
+                Simple demo showing GET operation against an MMORPG API endpoint.
+                Notable difference between this demo versus the MailChimp API demo is that I'm making the requests purely from the clientside.
+                Also I'm using localStorage mechanism to save API keys on the browser. This means your pasted APIKey will survive page loads and refreshes.<br />
+                I plan to continue working on this to include more endpoints and link data that are IDs to other endpoint resources.<br />
+                Currently supported endpoint: <b>account</b>
+            </p>
+            <p>
+                <a class="btn btn-warning" href="GuildWars2.aspx">Work in Progress &raquo;</a>
+            </p>
+        </div>
     </div>
     <hr />
     <div class="row">
@@ -41,7 +55,7 @@
                 Source: <a href="https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa" target="_blank">https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa</a>
             </p>
             <p>
-                <a class="btn btn-warning" href="Blockchain.aspx">Coming Soon &raquo;</a>
+                <a class="btn btn-warning" href="Blockchain.aspx">Work in Progress &raquo;</a>
             </p>
         </div>
     </div>

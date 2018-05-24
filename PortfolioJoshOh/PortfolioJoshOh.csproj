@@ -168,6 +168,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Demo\Blockchain.aspx" />
+    <Content Include="Demo\GuildWars2.aspx" />
     <Content Include="Demo\SQLQueries.aspx" />
     <Content Include="Demo\Home.aspx" />
     <Content Include="Demo\MailChimp.aspx" />
@@ -307,6 +308,13 @@
     </Compile>
     <Compile Include="Demo\Blockchain.aspx.designer.cs">
       <DependentUpon>Blockchain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Demo\GuildWars2.aspx.cs">
+      <DependentUpon>GuildWars2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo\GuildWars2.aspx.designer.cs">
+      <DependentUpon>GuildWars2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Demo\SQLQueries.aspx.cs">
       <DependentUpon>SQLQueries.aspx</DependentUpon>
