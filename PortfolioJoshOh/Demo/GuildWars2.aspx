@@ -37,12 +37,11 @@
 
             var response = $.ajax('https://api.guildwars2.com/v2/' + endpoint + '?access_token=' + apiKey);
             response.done(function (data) {
-
-                populateTableWithAPIResponseObject(data, "tblAPIResult");
+                populateTableWithAPIResponseObject(data, "tblAPIResult", false);
             });
             response.fail(function (data) {
                 alert("ERROR: API call failed.");
-                populateTableWithAPIResponseObject(data.responseJSON, "tblAPIResult");
+                populateTableWithAPIResponseObject(data.responseJSON, "tblAPIResult", true);
             })
         }
 
