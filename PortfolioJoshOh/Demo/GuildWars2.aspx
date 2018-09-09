@@ -71,7 +71,8 @@
             //});
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            var response = $.ajax('https://api.guildwars2.com/v2/' + endpoint + '?access_token=' + apiKey);
+            var uri = 'https://api.guildwars2.com/v2/' + endpoint + '?access_token=' + apiKey;
+            var response = $.ajax(uri);
             response.done(function (data) {
                 populateTableWithAPIResponseObject(data, "tblAPIResult", false);
                 displayEndpointPicker();
@@ -81,7 +82,14 @@
                 populateTableWithAPIResponseObject(data.responseJSON, "tblAPIResult", true);
                 hideEndpointPicker();
                 clearAPIKeyFromLocalStorage();
-            })
+            });
+            response.always(function (data) {
+                displayLastApiUri(uri);
+            });
+        }
+
+        function displayLastApiUri(uri) {
+            $("a[id*='aLastApiUri']").attr("href", uri).text(uri);
         }
 
         function populateTableWithAPIResponseObject(data, tableID, isError) {
@@ -162,15 +170,17 @@
     <br />
     <h3>Guild Wars 2 API Explorer</h3>
     <br />
+    <div><font style="color:darkgreen"><b>Last API URI: </b></font><a id="aLastApiUri" target="_blank"></a></div>
+    <br />
     <ul id="ulEndpointPicker" class="nav nav-tabs">
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Achievements<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">achievements</a></li>
-                <li><a href="#">achievements/daily</a></li>
-                <li><a href="#">achievements/daily/tomorrow</a></li>
-                <li><a href="#">achievements/groups</a></li>
-                <li><a href="#">achievements/categories</a></li>
+                <li><a href="#" onclick="callGW2Endpoint('achievements', localStorage.getItem('GW2APIKey'))">achievements</a></li>
+                <li><a href="#" onclick="callGW2Endpoint('achievements/daily', localStorage.getItem('GW2APIKey'))">achievements/daily</a></li>
+                <li><a href="#" onclick="callGW2Endpoint('achievements/tomorrow', localStorage.getItem('GW2APIKey'))">achievements/daily/tomorrow</a></li>
+                <li><a href="#" onclick="callGW2Endpoint('achievements/groups', localStorage.getItem('GW2APIKey'))">achievements/groups</a></li>
+                <li><a href="#" onclick="callGW2Endpoint('achievements/categories', localStorage.getItem('GW2APIKey'))">achievements/categories</a></li>
             </ul>
         </li>
         <li class="dropdown">
