@@ -8,7 +8,6 @@
 
     <address>
         <strong>Email:</strong><a href="mailto:hire.josh.oh@gmail.com">hire.josh.oh@gmail.com</a><br />
-        <strong>Phone:</strong>719-232-2450
     </address>
     <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 </asp:Content>
